@@ -1,6 +1,6 @@
 var db=require('./../global/global.js');
 var express = require('express');
-var ObjectID = require('mongodb').ObjectID; 
+var ObjectID = require('mongodb').ObjectID;  //查询ID模块
 var router = express.Router();
 
 
@@ -46,8 +46,7 @@ router.get("/queryBooks",function(req,res){
         if(err){
             console.log(err);
         }
-        res.send(result);
-        
+        res.send(result);    
     });
 });
 // 查找图书单条详情数据
@@ -62,6 +61,21 @@ router.get("/queryBooksItem",function(req,res){
         
     });
 });
+
+// 查找学生单条详情数据
+router.get("/queryBooksItem",function(req,res){
+
+    //查找4个参数，在哪个集合查，查什么，查完之后做什么
+    db.findItem('books',{"_id": new ObjectID(req.query.id)},function(err,result){
+        if(err){
+            console.log(err);
+        }
+        res.send(result);
+        
+    });
+});
+
+
 
 //删除
 router.get("/delBooks",function(req,res){
@@ -84,7 +98,6 @@ router.post("/modifyBooks",function(req,res){
 
     db.updateMany(
         "books",         //集合名字
-
         {
             "_id":  _id     //要改哪里
         },
@@ -98,6 +111,7 @@ router.post("/modifyBooks",function(req,res){
                 console.log(err);
             }
             res.send(result);
+            console.log("result====",result)
         }
     );
 });
