@@ -2,7 +2,7 @@
 * @Author: lenovo
 * @Date:   2017-09-22 17:35:25
 * @Last Modified by:   lenovo
-* @Last Modified time: 2017-09-22 22:08:45
+* @Last Modified time: 2017-09-23 15:37:27
 */
 var express=require('express');
 var bodyParser = require('body-parser'); //引入body拿参的中间件模块
@@ -41,5 +41,5 @@ app.use('/api', BooksRouter);
 app.use('/api', uploadRouter);
 
 app.listen(3000,function(){
-    console.log("您好，你的node服务已启动！请在浏览器窗口打开URL：localhost:3000")
+    console.log("node服务已启动！端口为3000")
 })

@@ -29,7 +29,6 @@ exports.insertOne=function(collectionName,data,callback){
 // 查找数据
 // collectionName, 表名
 // queryJson,     查询语句，直接塞find里面
-// pageJson,      分页参数
 // callback       回调函数
 exports.find = function (collectionName, querySql,callback) {
     var result = [];    //结果数组
@@ -115,61 +114,4 @@ exports.updateMany = function (collectionName, json1, json2, callback) {
     })
 }
 
-
-// // 查找单条数据
-// exports.findItem = function (collectionName, json, callback) {
-//     var result = [];    //结果数组
-//     console.log('单条查找传参为======',json);
-//     //返回的数据对象
-//     let resData = {
-//           "resultCode": "0",
-//           "resultMsg": "",
-//           "data": null
-//         };
-//     //连接数据库，连接之后查找所有
-//     _connent(function (err, db) {
-//         db.collection(collectionName).findOne(json,function (err, items){
-            
-//             console.log('单条查找到的数据：',items);
-//             resData.data = items;
-//             callback(null, resData);
-//             db.close()
-            
-//         });
-         
-//     });
-// }
-
-// //删除
-// exports.deleteMany = function (collectionName, json, callback) {
-//     console.log('删除传参为,',json)
-//     _connent(function (err, db) {
-//         //删除
-//         db.collection(collectionName).deleteMany(
-//             json,
-//             function (err, results) {
-//                 callback(err, results);
-//                 db.close(); //关闭数据库
-//             }
-//         );
-//     });
-// }
-
-// //修改
-// exports.updateMany = function (collectionName, json1, json2, callback) {
-//     //置入数据修改时间
-//     //json2['updateDate2'] = new Date();
-
-//     _connent(function (err, db) {
-//         db.collection(collectionName).updateMany(
-//             json1,
-//             json2,
-//             function (err, results) {
-//                 callback(err, results);
-//                 db.close();
-//             });
-//     })
-// }
-    
-    
 
